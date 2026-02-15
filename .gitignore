@@ -1,0 +1,13 @@
+.env
+node_modules
+static
+
+config.py
+forms.py
+models.py
+
+templates/Alumnos.html
+templates/layout.html
+templates/_macros.html
+
+
