@@ -32,9 +32,15 @@
                         <span class="text-indigo-600 font-medium">{{ alum.email }}</span>
                     </td>
                     <td class="px-6 py-4 text-center space-x-4">
-                        <a href="#" class="font-medium text-indigo-600 hover:underline">Editar</a>
+
+                     <a href="modificar?id={{ alum.id }}" 
+   class="font-medium text-indigo-600 hover:underline">Editar</a>
+
                         <a href="detalles?id={{ alum.id }}" class="font-medium text-body hover:underline">Detalles</a>
-                        <a href="#" class="font-medium text-red-600 hover:underline">Eliminar</a>
+
+                        <a href="eliminar?id={{ alum.id }}" 
+   class="font-medium text-red-600 hover:underline">Eliminar</a>
+   
                     </td>
                 </tr>
                 {% endfor %}

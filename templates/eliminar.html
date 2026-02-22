@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block container %}
+{% import "_macros.html" as macros %}
+
+<form action="" method="POST" novalidate class="max-w-sm mx-auto">
+  {{ form.csrf_token }}
+
+  <!-- Enviamos el ID oculto -->
+  <input type="hidden" name="id" value="{{ request.args.get('id') }}">
+
+  <div class="mb-5">
+    {{ macros.camposNuevos(form.nombre, readonly=True, class="bg-neutral-secondary-medium
+    border border-default-medium text-heading text-sm rounded-base
+    block w-full px-3 py-2.5 shadow-xs") }}
+  </div>
+
+  <div class="mb-5">
+    {{ macros.camposNuevos(form.apaterno, readonly=True, class="bg-neutral-secondary-medium
+    border border-default-medium text-heading text-sm rounded-base
+    block w-full px-3 py-2.5 shadow-xs") }}
+  </div>
+
+  <div class="mb-5">
+    {{ macros.camposNuevos(form.email, readonly=True, class="bg-neutral-secondary-medium
+    border border-default-medium text-heading text-sm rounded-base
+    block w-full px-3 py-2.5 shadow-xs") }}
+  </div>
+
+  <button
+    type="submit"
+    class="text-white bg-red-600 box-border border border-transparent
+    hover:bg-red-700 focus:ring-4 focus:ring-red-300
+    shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5
+    focus:outline-none"
+  >
+    Confirmar Eliminación
+  </button>
+</form>
+
+{% endblock %}
