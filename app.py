@@ -12,10 +12,11 @@ from flask_wtf import FlaskForm
 import forms
 from models import db
 from models import Alumnos
+from maestros.routes import maestros
 
 app = Flask(__name__)
 app.config.from_object(DevelopmentConfig)
-db.init_app(app)
+app.register_blueprint(maestros)
 migrate=Migrate(app,db)
 
 csrf=CSRFProtect()

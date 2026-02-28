@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block container %}
+<div class="p-6">
+    <div class="mb-4 flex justify-between items-center">
+        <h3 class="text-lg font-semibold text-heading">Listado de Maestros</h3>
+        <a href="maestros/nuevo" class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-base hover:bg-indigo-700 shadow-sm transition-all">
+            + Nuevo Maestro
+        </a>
+    </div>
+
+    <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+        <table class="w-full text-sm text-left rtl:text-right text-body">
+            <thead class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
+                <tr>
+                    <th class="px-6 py-3 font-medium">MATRÍCULA</th>
+                    <th class="px-6 py-3 font-medium">NOMBRE</th>
+                    <th class="px-6 py-3 font-medium">APELLIDO PATERNO</th>
+                    <th class="px-6 py-3 font-medium">ESPECIALIDAD</th>
+                    <th class="px-6 py-3 font-medium">CORREO ELECTRÓNICO</th>
+                    <th class="px-6 py-3 font-medium text-center">ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for maestro in maestros %}
+                <tr class="bg-neutral-primary border-b border-default hover:bg-neutral-secondary-soft transition-colors">
+                    <td class="px-6 py-4 font-medium text-heading">
+                        {{ maestro.matricula }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ maestro.nombre }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ maestro.apaterno }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ maestro.especialidad }}
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="text-indigo-600 font-medium">
+                            {{ maestro.email }}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-center space-x-4">
+
+                        <a href="maestros/modificar?matricula={{ maestro.matricula }}" 
+                           class="font-medium text-indigo-600 hover:underline">
+                           Editar
+                        </a>
+
+                        <a href="maestros/detalles?matricula={{ maestro.matricula }}" 
+                           class="font-medium text-body hover:underline">
+                           Detalles
+                        </a>
+
+                        <a href="maestros/eliminar?matricula={{ maestro.matricula }}" 
+                           class="font-medium text-red-600 hover:underline">
+                           Eliminar
+                        </a>
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
